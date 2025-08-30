@@ -30,7 +30,7 @@
   "web_accessible_resources": [
     {
       "resources": ["src/words.json"],
-      "matches": ["<all_urls>"]
+      "matches": ["https://meet.google.com/*"]
     }
   ]
 }
