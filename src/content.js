@@ -1,8 +1,7 @@
 // Load synonym dictionary
 let synonyms = {};
-let dictionaryReady = false;
 
-fetch(chrome.runtime.getURL("words.json"))
+fetch(chrome.runtime.getURL("src/words.json"))
   .then((response) => response.json())
   .then((data) => {
     synonyms = data;
