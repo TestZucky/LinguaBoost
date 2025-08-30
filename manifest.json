@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Tech Synonym Helper",
+  "version": "1.0",
+  "description": "Suggests synonyms for common words during Google Meet using captions.",
+  "permissions": ["activeTab", "storage", "scripting"],
+  "host_permissions": ["https://meet.google.com/*"],
+  "action": {
+    "default_title": "Enable Synonym Helper"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content.js"],
+      "css": ["overlay.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["words.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
