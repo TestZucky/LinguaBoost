@@ -14,7 +14,7 @@ cd LinguaBoost
 ```
 
 ### 3. Create a Branch
-- Always create a new branch for your changes.
+- Always create a new branch (from dev branch) for your changes.
 ```bash
 git checkout -b my-feature-branch
 ```
