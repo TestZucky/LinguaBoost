@@ -1,0 +1,24 @@
+{
+  "name": "linguaboost",
+  "version": "1.0.0",
+  "description": "LinguaBoost is a Chrome extension that helps you sound more polished in technical meetings.   It listens to captions (currently works with Google Meet captions enabled) and suggests better synonyms or jargon words you can use in your replies.",
+  "main": "build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TestZucky/LinguaBoost.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TestZucky/LinguaBoost/issues"
+  },
+  "homepage": "https://github.com/TestZucky/LinguaBoost#readme",
+  "dependencies": {
+    "archiver": "^7.0.1"
+  }
+}
