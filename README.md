@@ -21,12 +21,24 @@ For example:
 - Expand the jargon/synonym dictionary
 - Support for more meeting platforms (Zoom, MS Teams, etc.)
 
-### 🛠️ Development
+### 🛠️ Development / Local Installation
 
-1. Clone the repo
-2. Load the extension in Chrome (Developer Mode → Load unpacked)
-3. Join a Google Meet with captions enabled
-4. Get real-time suggestions while you talk
+1. Clone the repo 
+```bash
+git clone https://github.com/<your-username>/LinguaBoost.git
+cd LinguaBoost
+```
+2. Open Chrome and go to Extensions
+    - Navigate to chrome://extensions/
+    - Enable Developer mode (toggle in the top right corner)
+3. Load the extension
+    - Click Load unpacked
+    - Select the folder where you cloned the repo (linguaboost/)
+4. Start using it
+    - Join a Google Meet with captions enabled
+    - LinguaBoost will suggest better words in real-time
+
+⚠️ Note: Currently works only with Google Meet captions.
 
 ---
 
