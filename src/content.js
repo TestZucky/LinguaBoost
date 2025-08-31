@@ -21,7 +21,7 @@ overlay.innerHTML = `
   <div id="overlay-body">
     <input type="text" id="synonym-input" placeholder="Type a word..." />
     <div id="synonym-results"></div>
-    <hr />
+    <hr/>
     <h4>Live Captions</h4>
     <div id="caption-suggestions"></div>
   </div>
@@ -187,5 +187,3 @@ chrome.runtime.onMessage.addListener((msg) => {
     chrome.storage.local.set({ overlayClosed: false });
   }
 });
-
-console.log("Synonym Helper is running. Turn on captions in Meet!");
