@@ -1,12 +1,27 @@
 {
   "manifest_version": 3,
   "name": "Lingua Boost",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Suggests synonyms for common words during Google Meet using captions.",
-  "permissions": ["activeTab", "storage", "scripting"],
+  "permissions": ["activeTab", "storage"],
   "host_permissions": ["https://meet.google.com/*"],
   "action": {
-    "default_title": "Lingua Boost"
+    "default_title": "Lingua Boost",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
   },
   "content_scripts": [
     {
@@ -18,7 +33,7 @@
   "web_accessible_resources": [
     {
       "resources": ["src/words.json"],
-      "matches": ["<all_urls>"]
+      "matches": ["https://meet.google.com/*"]
     }
   ]
 }

@@ -1,15 +1,99 @@
 #synonym-helper-overlay {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    background: rgba(0,0,0,0.85);
-    color: white;
-    padding: 10px 15px;
-    border-radius: 10px;
-    font-size: 14px;
-    font-family: Arial, sans-serif;
-    max-width: 300px;
-    z-index: 999999;
-    display: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: #edf7f3; /* light gray for softer look */
+  color: #111;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  max-width: 320px;
+  min-width: 200px;
+  min-height: 120px;
+  resize: both; /* user can resize */
+  overflow: auto;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  border: 1px solid #b2d8cc;
+  cursor: move; /* shows it's draggable */
+}
+
+#synonym-helper-overlay h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #2563eb; /* nice blue */
+  color: #805752; /* warm brown */
+}
+
+#synonym-helper-overlay input[type="text"] {
+  padding: 6px 8px;
+  border: 1px solid #b2d8cc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+#synonym-input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 13px;
+  box-sizing: border-box; /* fits inside box */
+  outline: none;
+}
+
+#synonym-results {
+  margin-top: 4px;
+}
+
+#synonym-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+}
+
+#manual-suggestions,
+#live-suggestions {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 13px;
+  max-height: 120px;
+  overflow-y: auto;
+  margin-bottom: 4px;
+}
+
+#overlay-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* space between input, results, etc. */
+  margin-top: 8px; /* space from header */
+}
+
+#overlay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: move; /* make header draggable */
+}
+
+#overlay-header button {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+  cursor: pointer;
+  padding: 0 6px;
+  line-height: 1;
+  margin-left: 6px;
+}
+
+#overlay-header button:hover {
+  color: #2563eb; /* highlight on hover */
 }
