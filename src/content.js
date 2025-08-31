@@ -1,24 +1,32 @@
 // Load synonym dictionary
 let synonyms = {};
+const divTagForCaption = "ygicle VbkSUe";
 
 fetch(chrome.runtime.getURL("src/words.json"))
   .then((response) => response.json())
   .then((data) => {
     synonyms = data;
-    console.log("Synonym dictionary loaded:", synonyms);
   });
 
 // Create overlay
 const overlay = document.createElement("div");
 overlay.id = "synonym-helper-overlay";
 overlay.innerHTML = `
-  <h4>Synonym Helper</h4>
-  <input type="text" id="synonym-input" placeholder="Type a word..." />
-  <div id="synonym-results"></div>
-  <hr />
-  <h4>Live Captions</h4>
-  <div id="caption-suggestions"></div>
+  <div id="overlay-header" style="display:flex;justify-content:space-between;align-items:center;">
+    <h4 style="margin:0;">Synonym Helper</h4>
+    <div>
+      <button id="close-btn">×</button>
+    </div>
+  </div>
+  <div id="overlay-body">
+    <input type="text" id="synonym-input" placeholder="Type a word..." />
+    <div id="synonym-results"></div>
+    <hr />
+    <h4>Live Captions</h4>
+    <div id="caption-suggestions"></div>
+  </div>
 `;
+
 document.body.appendChild(overlay);
 
 // Input handling for manual search
@@ -77,7 +85,7 @@ const observer = new MutationObserver((mutations) => {
     if (mutation.type === "childList") {
       mutation.addedNodes.forEach((node) => {
         if (node.nodeType === 1 && node.innerText) {
-          if (node.className && node.className.includes("ygicle VbkSUe")) {
+          if (node.className && node.className.includes(divTagForCaption)) {
             processCaptionText(node.innerText);
           }
         }
@@ -127,7 +135,7 @@ document.addEventListener("mouseup", () => {
   overlay.style.transition = "";
 });
 
-// ✅ Make overlay draggable
+// Make overlay draggable
 (function makeDraggable() {
   const el = overlay;
   let isDown = false;
@@ -164,5 +172,20 @@ document.addEventListener("mouseup", () => {
     true
   );
 })();
+
+const closeBtn = overlay.querySelector("#close-btn");
+
+closeBtn.addEventListener("click", () => {
+  overlay.style.display = "none";
+  chrome.storage.local.set({ overlayClosed: true });
+});
+
+// When extension is clicked, re-show overlay
+chrome.runtime.onMessage.addListener((msg) => {
+  if (msg.action === "toggleOverlay") {
+    overlay.style.display = "block";
+    chrome.storage.local.set({ overlayClosed: false });
+  }
+});
 
 console.log("Synonym Helper is running. Turn on captions in Meet!");
