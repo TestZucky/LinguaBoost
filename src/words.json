@@ -1,33 +1,513 @@
 {
-  "task": ["assignment", "responsibility", "work item", "deliverable"],
-  "issue": ["bug", "problem", "defect", "anomaly", "incident"],
-  "deadline": ["due date", "target date", "timeline", "timeframe"],
-  "meeting": ["sync", "discussion", "standup", "touchpoint", "huddle"],
-  "project": ["initiative", "workstream", "engagement", "undertaking"],
-  "plan": ["roadmap", "blueprint", "strategy", "course of action"],
-  "update": ["progress report", "status check", "checkpoint", "sync-up"],
-  "team": ["squad", "crew", "unit", "task force"],
-  "priority": ["focus area", "key concern", "critical path", "emphasis"],
-  "problem": ["challenge", "roadblock", "bottleneck", "impediment"],
-  "solution": ["remedy", "fix", "resolution", "workaround"],
-  "goal": ["objective", "milestone", "target", "outcome"],
-  "requirement": ["specification", "expectation", "criterion", "need"],
-  "performance": ["throughput", "efficiency", "latency", "responsiveness"],
-  "improvement": ["optimization", "enhancement", "upgrade", "refinement"],
-  "error": ["fault", "glitch", "exception", "misstep"],
-  "feedback": ["input", "commentary", "review", "observation"],
-  "document": ["artifact", "record", "deliverable", "paperwork"],
-  "process": ["workflow", "procedure", "pipeline", "framework"],
-  "decision": ["call", "resolution", "judgment", "conclusion"],
-  "research": ["analysis", "exploration", "investigation", "study"],
-  "design": ["architecture", "layout", "mockup", "blueprint"],
-  "feature": ["functionality", "capability", "module", "component"],
-  "test": ["validation", "verification", "check", "trial"],
-  "release": ["deployment", "rollout", "launch", "distribution"],
-  "approval": ["sign-off", "greenlight", "endorsement", "authorization"],
-  "discussion": ["dialogue", "brainstorm", "exchange", "forum"],
-  "learning": ["insight", "takeaway", "lesson", "knowledge gain"],
-  "problematic": ["suboptimal", "inefficient", "misaligned", "non-compliant"],
-  "pause": ["hold", "block", "stoppage", "suspension"],
-  "start": ["kick-off", "initiation", "onset", "commencement"]
+  "agree": ["consent", "endorse", "ratify", "validate", "handshake"],
+  "disagree": ["object", "oppose", "dispute", "contradict", "take exception"],
+  "decision_pending": [
+    "TBD",
+    "undecided",
+    "open item",
+    "pending call",
+    "not locked"
+  ],
+  "delay": ["postpone", "defer", "reschedule", "slide out", "holdover"],
+  "fast": ["blitz", "expedite", "fast-track", "turbocharge", "accelerate"],
+  "slow": ["stall", "drag out", "bog down", "crawl", "linger"],
+  "important": [
+    "pivotal",
+    "key driver",
+    "essential",
+    "cornerstone",
+    "linchpin"
+  ],
+  "unimportant": [
+    "peripheral",
+    "side issue",
+    "minor",
+    "trivial",
+    "non-essential"
+  ],
+  "start": ["bootstrap", "ignite", "launchpad", "get rolling", "spin up"],
+  "stop": ["halt", "abort", "discontinue", "cut off", "drop dead"],
+  "finish": ["wrap", "conclude", "tie off", "close the loop", "button up"],
+  "cancel": ["void", "terminate", "call it quits", "kill switch", "scrap plan"],
+  "consider": [
+    "brainstorm",
+    "speculate",
+    "ideate",
+    "weigh options",
+    "test waters"
+  ],
+  "confirm": ["ratify", "affirm", "seal", "make official", "give nod"],
+  "reject": ["turn down", "brush off", "dismiss", "overrule", "block"],
+  "monitor": ["supervise", "audit", "oversee", "shadow", "track record"],
+  "analyze": ["dissect", "unpack", "evaluate", "break down", "map out"],
+  "problem": ["snag", "hiccup", "jam", "derailment", "constraint"],
+  "solution": ["patch", "cure", "antidote", "bridge", "silver bullet"],
+  "risk": ["exposure", "threat", "hazard", "vulnerability", "pitfall"],
+  "safe": ["covered", "protected", "guarded", "bulletproof", "fail-safe"],
+  "uncertain": [
+    "iffy",
+    "questionable",
+    "not guaranteed",
+    "unstable",
+    "unknowns"
+  ],
+  "clear": [
+    "transparent",
+    "unambiguous",
+    "straightforward",
+    "crystal",
+    "plain"
+  ],
+  "complex": [
+    "complicated",
+    "intricate",
+    "layered",
+    "convoluted",
+    "multi-faceted"
+  ],
+  "easy": ["smooth", "seamless", "simple", "effortless", "plug-and-play"],
+  "communication": ["broadcast", "notification", "signal", "ping", "blast"],
+  "ask": ["request", "petition", "seek approval", "appeal", "raise hand"],
+  "permission": [
+    "access grant",
+    "allowance",
+    "go-ahead",
+    "clearance",
+    "permit"
+  ],
+  "blocker": ["stopper", "showstopper", "deadlock", "barrier", "brick wall"],
+  "help": ["assist", "support", "lend a hand", "back up", "enable"],
+  "improve": ["sharpen", "revamp", "refresh", "boost", "fine-tune"],
+  "bad": ["poor", "subpar", "weak", "flawed", "unfit"],
+  "good": ["solid", "robust", "sound", "healthy", "resilient"],
+  "meeting": ["pow-wow", "sync-up", "alignment", "sit-down", "connect"],
+  "report": ["memo", "briefing", "statement", "dispatch", "write-up"],
+  "next_step": ["follow-on", "subtask", "trigger", "handoff", "chain link"],
+  "priority": ["rank", "pecking order", "weight", "urgency", "criticality"],
+  "review": [
+    "inspect",
+    "go over",
+    "check through",
+    "scrutinize",
+    "walkthrough"
+  ],
+  "test": ["trial run", "experiment", "sample", "pilot program", "alpha"],
+  "feature": ["offering", "provision", "service", "widget", "add-on"],
+  "user": ["customer", "client", "stakeholder", "end consumer", "subscriber"],
+  "manager": ["lead", "owner", "sponsor", "point person", "champion"],
+  "employee": ["associate", "contributor", "resource", "operator", "talent"],
+  "scope": ["coverage", "extent", "reach", "boundary", "domain"],
+  "budget": ["allocation", "funding", "reserves", "spend", "war chest"],
+  "time": ["slot", "window", "band", "interval", "cycle"],
+  "plan": ["contingency", "scheme", "charter", "program", "agenda"],
+  "learning": ["training", "skill-up", "development", "coaching", "upskilling"],
+  "feedback": [
+    "peer notes",
+    "scorecard",
+    "assessment",
+    "review points",
+    "debrief"
+  ],
+  "brainstorm": [
+    "ideation",
+    "thought shower",
+    "idea jam",
+    "concepting",
+    "spitballing"
+  ],
+  "leadership": [
+    "guidance",
+    "direction",
+    "captaincy",
+    "stewardship",
+    "mentorship"
+  ],
+  "vision": [
+    "dream",
+    "big picture",
+    "aspiration",
+    "future state",
+    "north star"
+  ],
+  "execution": [
+    "delivery",
+    "rollout",
+    "implementation",
+    "carrying out",
+    "operationalization"
+  ],
+  "track": ["progress", "trajectory", "path", "lane", "course"],
+  "change": ["shift", "pivot", "adjustment", "recalibration", "reset"],
+  "stuck": ["hung", "jammed", "blocked", "gridlock", "stonewalled"],
+  "move": ["proceed", "push forward", "advance", "carry on", "step ahead"],
+  "review_later": [
+    "hold for later",
+    "save for next time",
+    "future agenda",
+    "not now",
+    "bookmark"
+  ],
+  "urgent": ["hot", "time-sensitive", "high-velocity", "pressing", "rush"],
+  "non_urgent": [
+    "backlog",
+    "slow-burn",
+    "stretch goal",
+    "someday item",
+    "optional"
+  ],
+  "milestone": [
+    "checkpoint",
+    "stage gate",
+    "phase marker",
+    "stopover",
+    "signpost"
+  ],
+  "celebrate": ["recognize", "acknowledge", "give kudos", "shout-out", "toast"],
+  "failure": ["collapse", "fall-through", "mishap", "flop", "miss"],
+  "success": ["win", "victory", "achievement", "triumph", "hit"],
+  "document": ["whitepaper", "brief", "charter doc", "log", "record"],
+  "approve": ["accept", "authorize", "bless", "back", "consent to"],
+  "reject_soft": [
+    "push to backlog",
+    "save for later",
+    "needs refining",
+    "not now",
+    "revise"
+  ],
+  "compete": ["contend", "vie", "jockey for", "fight for", "race"],
+  "cooperate": ["partner", "collaborate", "team up", "ally", "coordinate"],
+  "discuss_later": [
+    "offline chat",
+    "side conversation",
+    "one-on-one",
+    "after call",
+    "next cycle"
+  ],
+  "lead": ["drive", "pilot", "spearhead", "champion", "front-run"],
+  "follow": ["shadow", "mirror", "observe", "support role", "secondary"],
+  "highlight": ["spotlight", "emphasize", "underscore", "call out", "flag"],
+  "downplay": ["soften", "minimize", "understate", "tone down", "gloss over"],
+  "options": ["alternatives", "choices", "paths", "routes", "variants"],
+  "default": ["baseline", "standard", "preset", "fallback", "norm"],
+  "backup": ["redundancy", "failsafe", "plan B", "spare", "reserve"],
+  "alignment": [
+    "consensus",
+    "same page",
+    "synergy",
+    "mutual understanding",
+    "cohesion"
+  ],
+  "misalignment": [
+    "disconnect",
+    "misunderstanding",
+    "divergence",
+    "out of sync",
+    "gap"
+  ],
+  "align": [
+    "synchronize",
+    "coordinate",
+    "harmonize",
+    "standardize",
+    "bring together"
+  ],
+  "misunderstand": [
+    "misinterpret",
+    "confuse",
+    "take wrong way",
+    "overlook",
+    "misread"
+  ],
+  "urgent_action": [
+    "all hands on deck",
+    "fire drill",
+    "hotfix",
+    "red alert",
+    "time bomb"
+  ],
+  "non_critical": [
+    "nice-to-have",
+    "low priority",
+    "stretch",
+    "wishlist",
+    "optional extra"
+  ],
+  "delegate": ["hand off", "assign", "pass down", "transfer", "entrust"],
+  "ownership": [
+    "accountability",
+    "responsibility",
+    "custodianship",
+    "point ownership",
+    "stewardship"
+  ],
+  "close": ["lock down", "seal", "sign off", "mark complete", "conclude"],
+  "reopen": ["revisit", "unlock", "restart", "resurface", "bring back"],
+  "question": ["query", "ask out", "raise point", "challenge", "doubt"],
+  "answer": [
+    "response",
+    "reply",
+    "acknowledgement",
+    "solution statement",
+    "clarification"
+  ],
+  "escalate": [
+    "raise up",
+    "bump up",
+    "hand to leadership",
+    "push upward",
+    "flag higher"
+  ],
+  "deescalate": [
+    "diffuse",
+    "calm down",
+    "resolve quietly",
+    "lower temperature",
+    "soften impact"
+  ],
+  "motivation": ["drive", "incentive", "reason", "spark", "trigger"],
+  "demotivation": [
+    "burnout",
+    "lack of drive",
+    "drain",
+    "demoralization",
+    "energy drop"
+  ],
+  "energy": ["momentum", "push", "impulse", "lift", "uptick"],
+  "no_energy": ["sluggishness", "fatigue", "drag", "drop-off", "slump"],
+  "assign": ["map", "allocate", "distribute", "designate", "schedule"],
+  "remove": ["unassign", "pull back", "retract", "strip out", "withdraw"],
+  "repeat": ["replay", "redo", "duplicate", "cycle again", "restate"],
+  "skip": ["bypass", "omit", "jump over", "leave aside", "sidestep"],
+  "quick": ["instant", "rapid", "prompt", "swift", "nimble"],
+  "long": ["extended", "drawn-out", "prolonged", "ongoing", "endless"],
+  "short": ["concise", "brief", "snappy", "to the point", "compressed"],
+  "discussion": ["chat", "dialogue", "panel", "forum", "exchange"],
+  "debate": [
+    "argument",
+    "deliberation",
+    "contention",
+    "back-and-forth",
+    "rebuttal"
+  ],
+  "consensus": [
+    "agreement",
+    "settlement",
+    "alignment",
+    "collective decision",
+    "common ground"
+  ],
+  "conflict": ["clash", "dispute", "collision", "rift", "difference"],
+  "neutral": ["middle ground", "balanced", "objective", "fair", "equidistant"],
+  "biased": ["skewed", "tilted", "partial", "slanted", "loaded"],
+  "metrics": [
+    "KPIs",
+    "benchmarks",
+    "indicators",
+    "measures",
+    "performance signals"
+  ],
+  "data": ["figures", "numbers", "stats", "dataset", "records"],
+  "anomaly": [
+    "outlier",
+    "deviation",
+    "oddity",
+    "irregularity",
+    "unexpected pattern"
+  ],
+  "standard": ["norm", "convention", "baseline", "template", "protocol"],
+  "non_standard": ["custom", "exceptional", "ad-hoc", "one-off", "edge case"],
+  "growth": ["expansion", "scale-up", "progression", "increase", "maturity"],
+  "decline": ["drop", "fall", "shrinkage", "regression", "dip"],
+  "stable": ["steady", "consistent", "predictable", "unchanging", "fixed"],
+  "unstable": ["volatile", "erratic", "fluctuating", "shaky", "uncertain"],
+  "collaboration": [
+    "partnership",
+    "co-creation",
+    "joint effort",
+    "teaming",
+    "cooperation"
+  ],
+  "competition": [
+    "rivalry",
+    "contestation",
+    "head-to-head",
+    "opposition",
+    "market fight"
+  ],
+  "opportunity": ["opening", "window", "chance", "option", "possibility"],
+  "threat": ["danger", "challenge", "obstacle", "menace", "red flag"],
+  "advantage": ["edge", "upper hand", "benefit", "plus point", "strength"],
+  "disadvantage": [
+    "drawback",
+    "limitation",
+    "weakness",
+    "downside",
+    "shortcoming"
+  ],
+  "future": [
+    "forward path",
+    "long-term view",
+    "next phase",
+    "upcoming",
+    "ahead"
+  ],
+  "past": ["prior", "historical", "archived", "legacy", "already done"],
+  "present": ["live", "ongoing", "real-time", "in play", "current moment"],
+  "ask_permission": [
+    "seek clearance",
+    "check approval",
+    "get nod",
+    "ask greenlight",
+    "request OK"
+  ],
+  "validate": [
+    "cross-check",
+    "reconfirm",
+    "sanity check",
+    "prove",
+    "authenticate"
+  ],
+  "invalidate": ["void", "disprove", "nullify", "strike down", "discredit"],
+  "formal": ["official", "ceremonial", "strict", "disciplined", "regulated"],
+  "informal": ["casual", "laid-back", "loose", "unstructured", "friendly"],
+  "positive": [
+    "constructive",
+    "helpful",
+    "uplifting",
+    "supportive",
+    "affirmative"
+  ],
+  "negative": ["destructive", "harmful", "critical", "blocking", "detrimental"],
+  "neutral_response": [
+    "okay",
+    "noted",
+    "understood",
+    "acknowledged",
+    "fair enough"
+  ],
+  "approval": [
+    "ratification",
+    "consent",
+    "blessing",
+    "acceptance",
+    "agreement"
+  ],
+  "disapproval": ["objection", "rejection", "criticism", "blockage", "refusal"],
+  "support": [
+    "endorsement",
+    "backing",
+    "reinforcement",
+    "sponsorship",
+    "assistance"
+  ],
+  "oppose": ["contradict", "counteract", "block", "resist", "disagree with"],
+  "create": ["generate", "craft", "produce", "develop", "initiate"],
+  "destroy": ["eliminate", "wipe out", "dismantle", "crash", "tear down"],
+  "organize": ["arrange", "sort", "systematize", "structure", "line up"],
+  "disorganize": ["mess up", "scatter", "confuse", "jumble", "chaotize"],
+  "presenting": [
+    "pitching",
+    "demoing",
+    "showcasing",
+    "highlighting",
+    "storytelling"
+  ],
+  "listening": [
+    "tuning in",
+    "active listening",
+    "paying attention",
+    "absorbing",
+    "hearing out"
+  ],
+  "interrupt": ["cut in", "break in", "jump in", "chime in", "interject"],
+  "resume_discussion": [
+    "circle back",
+    "pick up thread",
+    "continue",
+    "go back to",
+    "loop in"
+  ],
+  "side_discussion": [
+    "offline chat",
+    "sidebar",
+    "spin-off",
+    "after talk",
+    "breakout"
+  ],
+  "documentation": ["knowledge base", "handbook", "manual", "wiki", "notes"],
+  "reporting": [
+    "analytics",
+    "dashboards",
+    "summaries",
+    "tracking logs",
+    "scorecards"
+  ],
+  "analysis": [
+    "insights",
+    "diagnostics",
+    "evaluation",
+    "review findings",
+    "breakdown"
+  ],
+  "implementation": [
+    "rollout",
+    "execution",
+    "adoption",
+    "application",
+    "deployment"
+  ],
+  "idea": ["concept", "proposal", "suggestion", "innovation", "notion"],
+  "bad_idea": [
+    "flawed plan",
+    "risky bet",
+    "weak proposal",
+    "non-starter",
+    "dead idea"
+  ],
+  "good_idea": [
+    "strong proposal",
+    "viable option",
+    "innovative plan",
+    "winning idea",
+    "brilliant thought"
+  ],
+  "follow_up": [
+    "chase",
+    "remind",
+    "ping again",
+    "nudge",
+    "circle back reminder"
+  ],
+  "ignore": ["pass over", "turn away", "leave aside", "neglect", "overlook"],
+  "accept": ["take in", "embrace", "acknowledge", "welcome", "yes to"],
+  "deny": ["say no", "withhold", "refuse", "decline", "push back"],
+  "ownership_clear": [
+    "who owns this?",
+    "point of contact",
+    "single-threaded owner",
+    "responsible party",
+    "driver"
+  ],
+  "handoff": [
+    "transfer ownership",
+    "pass baton",
+    "delegate across",
+    "shift responsibility",
+    "transition"
+  ],
+  "checkpoint": [
+    "milestone",
+    "pause point",
+    "status gate",
+    "review mark",
+    "evaluation point"
+  ],
+  "end_state": [
+    "final form",
+    "target outcome",
+    "completion picture",
+    "finished product",
+    "endgame"
+  ],
+  "kickoff": ["jumpstart", "opening", "kick-start", "beginning", "roll-in"]
 }

@@ -65,12 +65,13 @@
   font-size: 13px;
   max-height: 120px;
   overflow-y: auto;
+  margin-bottom: 4px;
 }
 
 #overlay-body {
   display: flex;
   flex-direction: column;
-  gap: 10px; /* space between input, results, etc. */
+  gap: 6px; /* space between input, results, etc. */
   margin-top: 8px; /* space from header */
 }
 
